@@ -10,4 +10,5 @@
   <br><hr>
   <a class="btn btn-dark" href="{% url 'homepage' %}">Back</a>
   <a class="btn btn-primary" href="{% url 'update_article' post.pk %}">Edit</a>
+  <a class="btn btn-warn" href="{% url 'delete_article' post.pk %}">Delete</a>
 {% endblock %}

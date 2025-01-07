@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Delete Arictle{% endblock %}
+
+{% block content %}
+<div class="form-group">
+<form method="POST">
+  {% csrf_token %}
+  Confirm deleting "{{ post.title }}"?
+  <br>
+  <button class="btn btn-success">Yes</button>
+    <a href="{% url 'homepage' %}" class="btn btn-light">No</a>
+</form>
+</div>
+{% endblock %}

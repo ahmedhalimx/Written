@@ -1,6 +1,7 @@
+from django.urls import reverse_lazy
 from .models import Post
 from .forms import ArticleForm, UpdateForm
-from django.views.generic import DetailView, ListView, CreateView, UpdateView
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 
 # Create your views here.
 
@@ -25,3 +26,9 @@ class UpdateArticleView(UpdateView):
     model = Post
     form_class = UpdateForm
     template_name = "blog/update_article.html"
+
+
+class DeleteArticleView(DeleteView):
+    model = Post
+    template_name = 'blog/delete_article.html'
+    success_url = reverse_lazy('homepage')
