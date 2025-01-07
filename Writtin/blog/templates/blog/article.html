@@ -1,13 +1,12 @@
 {% extends 'blog/base.html' %}
-{% block title %}
-  {{ post.title }}
-{% endblock %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
 {% block content %}
-<h2> {{ post.title }} </h2>
-<small> By: {{ post.author }} </small>
-<hr><br>
-{{ post.content }}
-<br><br>
-<hr>
-<a class="btn btn-dark" href="{% url 'homepage' %}">Back</a></button>
+  <h2>{{ post.title }}</h2>
+  <small> By: {{ post.author }}</small>
+  <hr><br>
+  <p>{{ post.content }}</p>
+  <br><hr>
+  <a class="btn btn-dark" href="{% url 'homepage' %}">Back</a>
 {% endblock %}
