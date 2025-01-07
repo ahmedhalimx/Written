@@ -14,4 +14,4 @@ class Post(models.Model):
         return f"{self.title} by {self.author}"
 
     def get_absolute_url(self):
-        return reverse('homepage')
+        return reverse('article', args=(str(self.pk)))

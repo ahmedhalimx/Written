@@ -1,6 +1,6 @@
 from .models import Post
-from .forms import ArticleForm
-from django.views.generic import DetailView, ListView, CreateView
+from .forms import ArticleForm, UpdateForm
+from django.views.generic import DetailView, ListView, CreateView, UpdateView
 
 # Create your views here.
 
@@ -19,3 +19,9 @@ class AddArticleView(CreateView):
     model = Post
     form_class = ArticleForm
     template_name = "blog/add_article.html"
+
+
+class UpdateArticleView(UpdateView):
+    model = Post
+    form_class = UpdateForm
+    template_name = "blog/update_article.html"
