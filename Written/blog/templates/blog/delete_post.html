@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Delete Arictle{% endblock %}
+
+{% if user.is_authenticated %}
+{% if user.username == post.author %}
+  {% block content %}
+    <div class="form-group">
+      <form method="POST">
+       {% csrf_token %}
+       <h2>{{ post.author }}, Confirm Deleting This Post, "{{ post.title }}"?</h2>
+       <br>
+       <button class="btn btn-outline-danger me-md-2">Yes</button>
+       <a href="{% url 'post_detail' post.pk %}" class="btn btn-light">No</a>
+      </form>
+    </div>
+  {% endblock %}
+{% endif %}
+{% endif %}

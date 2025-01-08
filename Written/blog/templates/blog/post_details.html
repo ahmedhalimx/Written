@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h2>{{ post.title }}</h2>
+  <small> By: {{ post.author }}</small>
+  <br>
+  <small>Created at: {{post.created_at}},  Last updated: {{post.last_updated}}</small>
+  <br>
+  <hr>
+  <p>{{ post.content }}</p>
+  <hr>
+  <a class="btn btn-dark" href="{% url 'all_posts' %}">Back</a>
+  {% if user.is_authenticated and user.id == post.author.id %}
+    <a class="btn btn-outline-primary" href="{% url 'edit_post' post.pk %}">Edit</a>
+    <a class="btn btn-outline-danger" href="{% url 'delete_post' post.pk %}">Delete</a>
+  {% endif %}
+{% endblock %}

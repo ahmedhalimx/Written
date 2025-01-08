@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Create a Post{% endblock %}
+
+{% block content %}
+    <h2>Create a Post</h2>
+    <div class="form-group">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success">Create</button>
+        <a href="{% url 'all_posts' %}" class="btn btn-secondary">Cancel</a></button>
+      </form>
+  </div>
+{% endblock %}
